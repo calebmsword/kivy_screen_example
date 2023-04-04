@@ -35,10 +35,6 @@ class SecondScreen(Screen):
     pass
 
 
-class MyScreenManager(ScreenManager):
-    pass
-
-
 class KivyScreenExampleApp(App):
 
     def build(self):
