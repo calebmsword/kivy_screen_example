@@ -1,0 +1,49 @@
+#: import NoTransition kivy.uix.screenmanager.NoTransition
+
+#: set WHITE 1, 1, 1, 1
+#: set BLACK 0, 0, 0, 1
+
+<Manager>:
+    transition: NoTransition()
+    FirstScreen:
+    SecondScreen:
+
+
+<FirstScreen>:
+    name: "first"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "40dp"
+        spacing: "40dp"
+        ColoredLabel:
+            background_color: WHITE
+            text_color: BLACK
+            text: "First screen"
+        Button:
+            text: "Click me to switch screens"
+            on_release: root.manager.switch_screen(root)
+
+
+<SecondScreen>:
+    name: "second"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "40dp"
+        spacing: "40dp"
+        ColoredLabel:
+            background_color: WHITE
+            text_color: BLACK
+            text: "Second screen"
+        Button:
+            text: "Click me to switch screens"
+            on_release: root.manager.switch_screen(root)
+
+
+<ColoredLabel>:
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    color: self.text_color
